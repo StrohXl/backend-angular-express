@@ -9,6 +9,5 @@
     "esModuleInterop": true,
     "strictPropertyInitialization": false,
     "experimentalDecorators": true
-  },
-  "include": ["./api/*.ts"]
+  }
 }
