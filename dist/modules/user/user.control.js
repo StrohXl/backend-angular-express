@@ -1,13 +1,4 @@
 "use strict";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -16,18 +7,18 @@ const express_1 = require("express");
 const user_service_1 = __importDefault(require("./user.service"));
 const userRouter = (0, express_1.Router)();
 const service = new user_service_1.default();
-userRouter.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    return res.send(yield service.GET());
-}));
-userRouter.post("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    return res.send(yield service.POST(req.body));
-}));
-userRouter.get("/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+userRouter.get("/", async (req, res) => {
+    return res.send(await service.GET());
+});
+userRouter.post("/", async (req, res) => {
+    return res.send(await service.POST(req.body));
+});
+userRouter.get("/:id", async (req, res) => {
     const id = req.params.id;
-    return res.send(yield service.GETONE(Number(id)));
-}));
-userRouter.delete("/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    return res.send(await service.GETONE(Number(id)));
+});
+userRouter.delete("/:id", async (req, res) => {
     const id = req.params.id;
-    return res.send(yield service.DELETE(Number(id)));
-}));
+    return res.send(await service.DELETE(Number(id)));
+});
 exports.default = userRouter;
