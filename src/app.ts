@@ -3,7 +3,6 @@ import cors from "cors";
 import routerApp from "./app.routes";
 import AppDataSource from "./data.source";
 
-
 const app: Express = express();
 const port: number = 8000;
 app.use(cors());
@@ -17,3 +16,4 @@ app.get("/", (req: Request, res: Response) => {
 app.listen(port, () => {
   console.log(`Servidor escuchando en el puerto http://localhost:${port}`);
 });
+export default app;

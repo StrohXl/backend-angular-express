@@ -9,5 +9,5 @@
     "esModuleInterop": true,
     "strictPropertyInitialization": false,
     "experimentalDecorators": true
-  }
+  },
 }
