@@ -3,14 +3,6 @@ import cors from "cors";
 import routerApp from "./app.routes";
 import AppDataSource from "./data.source";
 
-AppDataSource.initialize()
-  .then(() => {
-    console.log("Data Source has been initialized!");
-    console.log(`Servidor escuchando en el puerto http://localhost:${port}`);
-  })
-  .catch((error) => {
-    console.error(error);
-  });
 
 const app: Express = express();
 const port: number = 8000;
