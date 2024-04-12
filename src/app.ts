@@ -3,6 +3,10 @@ import cors from "cors";
 import routerApp from "./app.routes";
 import AppDataSource from "./data.source";
 
+AppDataSource.initialize()
+  .then(() => console.log("conexion exitosa"))
+  .catch((error) => console.log(error));
+
 const app: Express = express();
 const port: number = 8000;
 app.use(cors());
