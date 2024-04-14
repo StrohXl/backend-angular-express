@@ -3,7 +3,6 @@ import User from "./user.entity";
 export default class userService {
   async GET() {
     const users = await User.find();
-    console.log(users);
     return users;
   }
   async POST(body: any) {
